@@ -8,6 +8,9 @@ Commande de compilation :
 
 gcc -m32 -Iinclude -z execstack test/main.c src/s_string.s -o my_prog
 
+Comprendre les variables assembleur : 
+
+http://www.lsv.fr/~goubault/CoursProgrammation/Doc/minic007.html
 
 Pile en programmation : 
 En programmation et en assembleur, la "pile" est une zone de mémoire spéciale utilisée pour stocker temporairement des informations. Elle fonctionne comme une pile d'assiettes : la dernière que vous ajoutez est la première que vous retirez.
