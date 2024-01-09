@@ -1,7 +1,7 @@
 Compiler un fichier assembleur : 
 
-$ as --32 exo1.s -o exo1.o
-$ ld -m elf_i386 exo1.o -o exo1
+$ as --32 s_string.s -o s_string.o
+$ ld -m elf_i386 s_string.o -o s_string
 
 Commande de compilation : 
 -s execstack : Cela indique au linker d'inclure la section .note.GNU-stack dans le binaire, ce qui résoud l'avertissement concernant la pile éxécutable.
@@ -40,6 +40,20 @@ Les registres x86 sont des emplacements de stockage internes au processeur qui s
 
 8. **%esp (Stack Pointer Register) :**
    - Utilisé comme pointeur de pile pour indiquer le sommet actuel de la pile.
+**XOR :**
+   - Mettre à 0 le registre %eax
+
+**movl :**
+   - Move long :  
+     - Copie les 32 bits de la source vers la destination.
+
+**movb :**
+   - Move byte :
+     - Copie un octet (8 bits) de la source vers la destination.
+
+**movw :**
+   - Move word :
+     - Copie un mot (16 bits) de la source vers la destination.
 
 Chacun de ces registres a des utilisations conventionnelles, mais dans la pratique, les programmeurs peuvent choisir d'utiliser ces registres différemment en fonction de leurs besoins. Les registres `%ebp` et `%esp` sont particulièrement importants pour la gestion de la pile, tandis que les autres sont souvent utilisés pour des opérations arithmétiques, logiques et pour l'accès à la mémoire.
 
