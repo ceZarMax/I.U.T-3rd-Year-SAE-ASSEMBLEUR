@@ -6,7 +6,12 @@ $ ld -m elf_i386 s_string.o -o s_string
 Commande de compilation : 
 -s execstack : Cela indique au linker d'inclure la section .note.GNU-stack dans le binaire, ce qui résoud l'avertissement concernant la pile éxécutable.
 
-gcc -m32 -Iinclude -z execstack test/main.c src/s_string.s -o my_prog
+gcc -m32 -g -Iinclude -z execstack test/main.c src/s_string.s -o my_prog
+
+**Debug**
+gdb ./my_prog
+run
+bt
 
 Comprendre les variables assembleur : 
 
