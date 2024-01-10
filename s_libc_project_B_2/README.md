@@ -1,3 +1,5 @@
+Le TRELLO : https://trello.com/b/FHbOBVwV/sae-assembleur-v2
+
 Compiler un fichier assembleur : 
 
 $ as --32 s_string.s -o s_string.o
