@@ -29,38 +29,41 @@ sum_loop:
 end_sum_loop:
 	pop %ebp #restaure la valeur initiale du pointeur de base de la pile
 	ret # return
+
 ######################################
 ######### Fonction s_strcpy ##########
 ######################################
 .text
 
+.section .text
 .global s_strcpy
+
 s_strcpy:
-    pushl %ebp
-    movl %esp, %ebp
+    pushl   %ebp                   # Sauvegarde l'ancien pointeur de base de la pile
+    movl    %esp,   %ebp           # Initialise un nouveau cadre de pile
+    pushl   %esi                   # Sauvegarde le registre %esi
+    pushl   %edi                   # Sauvegarde le registre %edi
+    movl    12(%ebp), %esi         # Récupère l'adresse de la chaîne source (src)
+    movl    8(%ebp), %edi          # Récupère l'adresse du tableau de destination (dest)
+    movl    %edi,    %eax           # Copie l'adresse de dest dans %eax
 
-    # Initialisation des registres
-    movl 8(%ebp), %esi   # Adresse de début de la chaîne source
-    movl 12(%ebp), %edi  # Adresse de début de la chaîne destination
+# Boucle de copie
+cp:
+    cmpb    $0, (%esi)             # Compare le caractère actuel de la source avec zéro (fin de chaîne)
+    je      fincp                   # Si fin de chaîne, saute à fincp
+    movb    (%esi), %dl            # Copie le caractère actuel de la source dans %dl
+    movb    %dl,    (%edi)         # Copie %dl à l'adresse de destination (%edi)
+    incl    %esi                   # Incrémente le pointeur source
+    incl    %edi                   # Incrémente le pointeur destination
+    jmp     cp                     # Saut à l'étiquette cp pour répéter la boucle
 
-    test %esi, %esi       # Vérifier si la source est nulle (pointeur non nul)
-    jz  end_copy_loop     # Si c'est le cas, sauter à la fin de la boucle
+# Fin de la fonction
+fincp:
+    movb    $0, (%edi)              # Ajoute le caractère nul à la fin de la chaîne de destination
+    popl    %edi                    # Restaure le registre %edi
+    popl    %esi                    # Restaure le registre %esi
+    popl    %ebp                    # Restaure l'ancien pointeur de base de la pile
+    ret
 
-    test %edi, %edi       # Vérifier si la destination est nulle (pointeur non nul)
-    jz  end_copy_loop     # Si c'est le cas, sauter à la fin de la boucle
 
-    xorl %eax, %eax       # Effacer des registres (mettre à zéro)
-
-copy_loop:
-    movb (%esi,%eax), %dl  # Chargement du caractère actuel de la source dans %dl
-    cmpb $0, %dl            # Comparaison avec zéro pour marquer la fin de la chaîne source
-    jz end_copy_loop       # Si c'est la fin, sauter à la fin de la boucle
-
-    movb %dl, (%edi,%eax)  # Copie du caractère dans la destination
-    incl %eax               # Incrémentation du compteur
-    jmp copy_loop           # Saut pour répéter la boucle
-
-end_copy_loop:
-    pop %ebp  # Restauration de la valeur initiale du pointeur de base de la pile
-    ret       # Retour de la fonction
 
