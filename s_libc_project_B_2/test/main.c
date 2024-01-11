@@ -17,7 +17,14 @@ int main() {
     printf("Source: %s\n", source);
     printf("Destination: %s\n", destination);
     
+    // STRNCPY
+    s_strncpy(destination, source, 5);
+    
+    printf("Source: %s\n", source);
+    printf("Destination: %s\n", destination);
+    
 
 
     return 0;
 }
+
