@@ -266,7 +266,7 @@ finish_strcmp:
 .text
 
 .section .text
-.global s_strcmp
+.global s_strncmp
     
 # Fonction de comparaison de chaînes s_strncmp
 s_strncmp:
@@ -324,12 +324,13 @@ s_strchr:
     pushl   %esi                   # Sauvegarde le registre %esi
     movl    12(%ebp), %esi         # Récupère l'adresse de la chaîne de caractères (str)
     movl    8(%ebp), %ecx          # Récupère le caractère à rechercher (search_char)
+    movl    $0, %edx               # Initialise le compteur à zéro
 
 # Boucle de recherche
 search:
     movb    (%esi), %al            # Charge le caractère actuel de la chaîne dans %al
     cmpb    $0, %al                # Compare le caractère actuel avec zéro (fin de chaîne)
-    je      not_found            # Si fin de chaîne, saute à not_found
+    je      finish_strchr          # Si fin de chaîne, saute à finish_strchr
     cmpb    %cl, %al               # Compare le caractère actuel avec le caractère à rechercher
     je      found                  # Si égal, saute à found
     incl    %esi                   # Incrémente le pointeur de la chaîne
@@ -337,15 +338,13 @@ search:
 
 # Cas où le caractère est trouvé
 found:
-    movl    %esi, %eax             # Charge l'adresse du caractère trouvé dans %eax
-    jmp     finish_strchr          # Saut à finish_strchr
-
-# Cas où le caractère n'est pas trouvé
-not_found:
-    movl    $0, %eax                # Charge zéro dans %eax (caractère non trouvé)
+    incl    %edx                   # Incrémente le compteur
+    incl    %esi                   # Incrémente le pointeur de la chaîne
+    jmp     search                 # Saut à l'étiquette search pour répéter la boucle
 
 # Fin de strchr
 finish_strchr:
+    movl    %edx, %eax             # Charge le compteur dans %eax
     popl    %esi                   # Restaure le registre %esi
     popl    %ebp                   # Restaure l'ancien pointeur de base de la pile
     ret
