@@ -1,0 +1,42 @@
+# Variables
+CC=gcc
+CFLAGS=-m32
+LDFLAGS=-L./lib
+LDLIBS=-ls_string -ls_maths
+SRC_DIR=./src
+BUILD_DIR=./build
+LIB_DIR=./lib
+TEST_DIR=./test
+INC_DIR=./include
+
+# Noms des bibliothèques à construire
+LIB_NAME=libs_string.so
+LIB_NAME_MATHS=libs_maths.so
+
+# Inclure s_string.s et s_maths.s
+SRCS=$(wildcard $(SRC_DIR)/*.s)
+OBJS=$(SRCS:$(SRC_DIR)/%.s=$(BUILD_DIR)/%.o)
+
+.PHONY: all clean library library_maths test
+
+all: library library_maths test
+
+library: $(OBJS)
+	mkdir -p $(LIB_DIR)
+	$(CC) $(CFLAGS) -shared -o $(LIB_DIR)/$(LIB_NAME) $(OBJS)
+
+library_maths: $(OBJS)
+	mkdir -p $(LIB_DIR)
+	$(CC) $(CFLAGS) -shared -o $(LIB_DIR)/$(LIB_NAME_MATHS) $(OBJS)
+
+# Crée les répertoires nécessaires
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.s
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) -c $< -o $@ -fno-asynchronous-unwind-tables
+
+test: $(TEST_DIR)/main.c library library_maths
+	$(CC) $(CFLAGS) $(TEST_DIR)/main.c -o $(TEST_DIR)/test $(LDFLAGS) -Wl,-rpath=$(LIB_DIR) $(LDLIBS) -I$(INC_DIR)
+	./$(TEST_DIR)/test
+
+clean:
+	rm -rf $(BUILD_DIR)/* $(LIB_DIR)/* $(TEST_DIR)/test

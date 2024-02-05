@@ -1,0 +1,19 @@
+.TH S_STRING 3 "Janvier 2024" "Version 2.0" "s_string fonctions"
+.SH NAME
+s_strcpy, s_strncpy, s_strcat, s_strncat, s_strlen, s_strcmp, s_strncmp, s_strchr - String manipulation functions
+.SH SYNOPSIS
+.B #include <s_string.h>
+.B char *s_strcpy(char *dest, const char *src);
+.B char *s_strncpy(char *dest, const char *src, size_t n);
+.B char *s_strcat(char *dest, const char *src);
+.B char *s_strncat(char *dest, const char *src, size_t n);
+.B size_t s_strlen(const char *str);
+.B int s_strcmp(const char *str1, const char *str2);
+.B int s_strncmp(const char *str1, const char *str2, size_t n);
+.B char *s_strchr(const char *str, int c);
+.SH DESCRIPTION
+Ce fichier contient l'implémentation en langage d'assemblage de diverses fonctions de manipulation de chaînes de caractères, notamment la copie, la concaténation, la comparaison et la recherche. Ces fonctions sont conçues pour être utilisées dans le cadre d'un programme C.
+.SH SEE ALSO
+.BR strcpy (3), \fBstrncpy\fP (3), \fBstrcat\fP (3), \fBstrncat\fP (3), \fBstrlen\fP (3), \fBstrcmp\fP (3), \fBstrncmp\fP (3), \fBstrchr\fP (3)
+.SH AUTHOR
+ARVIN-BEROD Maxence <maxence.ab@gmail.com>

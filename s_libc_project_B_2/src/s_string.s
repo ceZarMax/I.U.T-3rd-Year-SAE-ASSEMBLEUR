@@ -1,34 +1,30 @@
-.text
-
-.global init
-
-init:
-    ret
+.section .text_s_string
+.global init_s_string
 
 ######################################
 ######### Fonction s_strlen ##########
 ######################################
+.section .text_s_string
 .global s_strlen
+
 s_strlen:
-        # SAUVEGARDE de l'état initial de la pile :
-    pushl %ebp # Pousser valeur pointeur de base de la pile (%ebp) sur la pile
-    movl %esp, %ebp # Copier valeur actuelle pointeur de pile (%esp) dans (%ebp)
-        
-        # Initialisation des registres
-    movl 8(%ebp), %esi # @ de début de la chaine
-    xorl %eax, %eax # Effacer des registres (mettre à 0)
-# Boucle de calcul de la longueur de la chaine
+    pushl %ebp
+    movl %esp, %ebp
+    movl 8(%ebp), %esi
+    xorl %eax, %eax
+
 sum_loop:
-    movb (%esi,%eax), %dl # Correspond au caractère actuel de la chaine
-    cmpb $0, %dl # compare le caractère à zéro pour marquer la fin de la chaine
-    jz end_sum_loop # si le caractère est à zéro, on saute à end_sum_loop
-    
-        incl %eax # Sinon, on include (incrémente) le compteur %eax pour passer au car suivant
-    jmp sum_loop # On saute à sum_loop pour répéter la boucle
-# Fin de la boucle et nettoyage de la pile
+    movb (%esi,%eax), %dl
+    cmpb $0, %dl
+    je end_sum_loop
+
+    incl %eax
+    jmp sum_loop
+
 end_sum_loop:
-    pop %ebp #restaure la valeur initiale du pointeur de base de la pile
-    ret # return
+    pop %ebp
+    ret
+
 
 ######################################
 ######### Fonction s_strcpy ##########
@@ -347,4 +343,7 @@ finish_strchr:
     movl    %edx, %eax             # Charge le compteur dans %eax
     popl    %esi                   # Restaure le registre %esi
     popl    %ebp                   # Restaure l'ancien pointeur de base de la pile
+    ret
+
+init_s_string:
     ret
