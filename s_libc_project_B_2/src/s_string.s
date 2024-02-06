@@ -4,27 +4,32 @@
 ######################################
 ######### Fonction s_strlen ##########
 ######################################
-.section .text_s_string
+.text
+
+.section .text
 .global s_strlen
-
 s_strlen:
-    pushl %ebp
-    movl %esp, %ebp
-    movl 8(%ebp), %esi
-    xorl %eax, %eax
+    # SAUVEGARDE de l'état initial de la pile :
+    pushl %ebp # Pousser la valeur du pointeur de base de la pile (%ebp) sur la pile
+    movl %esp, %ebp # Copier la valeur actuelle du pointeur de pile (%esp) dans (%ebp)
+    
+    # Initialisation des registres
+    movl 8(%ebp), %esi # @ de début de la chaîne
+    xorl %eax, %eax # Effacer des registres (mettre à 0)
 
+    # Boucle de calcul de la longueur de la chaîne
 sum_loop:
-    movb (%esi,%eax), %dl
-    cmpb $0, %dl
-    je end_sum_loop
+    movb (%esi,%eax), %dl # Correspond au caractère actuel de la chaîne
+    cmpb $0, %dl # compare le caractère à zéro pour marquer la fin de la chaîne
+    jz end_sum_loop # si le caractère est à zéro, on saute à end_sum_loop
 
-    incl %eax
-    jmp sum_loop
+    incl %eax # Sinon, on include (incrémente) le compteur %eax pour passer au caractère suivant
+    jmp sum_loop # On saute à sum_loop pour répéter la boucle
 
+# Fin de la boucle et nettoyage de la pile
 end_sum_loop:
-    pop %ebp
-    ret
-
+    pop %ebp # Restaure la valeur initiale du pointeur de base de la pile
+    ret # Return
 
 ######################################
 ######### Fonction s_strcpy ##########

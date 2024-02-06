@@ -3,7 +3,7 @@
 #include <stddef.h>
 extern void init(void);
 
-extern int s_abs(int x);
+extern int s_abs2(int x);
 extern int s_atoi(const char* str);
 
 

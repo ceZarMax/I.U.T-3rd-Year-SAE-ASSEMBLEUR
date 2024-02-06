@@ -2,6 +2,9 @@
 .global init_s_maths
 
 
+.text
+
+.section .text
 .global s_abs
 
 s_abs:
@@ -28,6 +31,9 @@ positif:
 
 
 
+.text
+
+.section .text
 .global s_div
 
 s_div:
@@ -54,6 +60,9 @@ end_s_div:
     
 
 
+.text
+
+.section .text
 .global s_pow
 
 s_pow:

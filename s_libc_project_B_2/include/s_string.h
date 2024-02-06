@@ -17,6 +17,6 @@ extern int s_strcmp(const char* str1, const char* str2);
 
 extern int s_strncmp(const char *str1, const char *str2, size_t n);
 
-extern int s_strchr(const char *str, int c);
+extern const char* s_strchr(const char* str, int c);
 
 #endif /* S_STRING_H */

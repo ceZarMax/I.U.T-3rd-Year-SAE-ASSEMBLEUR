@@ -1,25 +1,47 @@
-Le TRELLO : https://trello.com/b/FHbOBVwV/sae-assembleur-v2
+# Projet s_libc
 
-Compiler un fichier assembleur : 
+## Description
+Le projet s_libc est une bibliothèque C minimaliste implémentée en assembleur 32 bits. Elle offre des fonctions de base similaires à celles de la libc standard, mais avec une implémentation personnalisée.
 
-$ as --32 s_string.s -o s_string.o
-$ ld -m elf_i386 s_string.o -o s_string
+## Organisation : 
 
-Commande de compilation : 
--s execstack : Cela indique au linker d'inclure la section .note.GNU-stack dans le binaire, ce qui résoud l'avertissement concernant la pile éxécutable.
+TRELLO : https://trello.com/b/FHbOBVwV/sae-assembleur-v2
 
-gcc -m32 -g -Iinclude -z execstack test/main.c src/s_string.s -o my_prog
 
-**Debug**
-gdb ./my_prog
-run
-bt
+## Fonctionnalités
+- **s_string**: Fonctions de manipulation de chaînes de caractères.
+- **s_maths**: Fonctions mathématiques basiques.
+- **s_stdlib**: Fonctions de la bibliothèque standard (abs, atoi, etc.).
+- **s_stdio**: Fonctions d'entrée/sortie basiques (s_puts).
 
-Comprendre les variables assembleur : 
+## Comment utiliser
+1. Clonez le dépôt Git : `git clone https://github.com/ceZarMax/I.U.T-3rd-Year-SAE-ASSEMBLEUR`
+2. Allez dans le répertoire du projet : `cd s_libc_project_B_2`
+3. Compilez la bibliothèque : `make`
+4. Exécutez les tests : `make test`
+
+## Auteurs
+- GIRAULT Adrien
+- ARVIN-BEROD Maxence
+- HUBERT Quentin
+
+## Licence
+Ce projet est distribué sous la licence de l'I.U.T de Vélizy
+
+## Remarques
+- Ce projet a été réalisé dans le cadre de la SAE Assembleur à l'Université de Vélizy. 2023
+- Pour toute question ou commentaire, veuillez nous contacter à [maxence.ab@gmail.com], [adri1girault@gmail.com], [quentin.hub19@gmail.com].
+
+## Debug
+`gdb ./test`
+`run`
+`bt`
+
+## Comprendre les variables assembleur : 
 
 http://www.lsv.fr/~goubault/CoursProgrammation/Doc/minic007.html
 
-Comprendre les registres : 
+## Comprendre les registres : 
 
 Les registres x86 sont des emplacements de stockage internes au processeur qui sont utilisés pour effectuer des opérations temporaires, stocker des données, et gérer le flux d'instructions. Voici une brève description de chaque registre :
 
@@ -47,6 +69,7 @@ Les registres x86 sont des emplacements de stockage internes au processeur qui s
 
 8. **%esp (Stack Pointer Register) :**
    - Utilisé comme pointeur de pile pour indiquer le sommet actuel de la pile.
+   
 **XOR :**
    - Mettre à 0 le registre %eax
 

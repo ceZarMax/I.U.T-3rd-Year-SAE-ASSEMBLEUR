@@ -1,22 +1,25 @@
+.section .text_s_stdlib
+.global init_s_stdlib
+
 .text
 
-.global init
-init:
-    ret
-
-.global s_abs
-s_abs:
+.section .text
+.global s_abs2
+s_abs2:
     push %ebp
     movl %esp, %ebp
     movl 8(%ebp), %eax
     cmpl $0, %eax
-    jg positif
+    jg positif2
     neg %eax
-positif:
+positif2:
     popl %ebp
     ret
     
     
+.text
+
+.section .text
 .global s_atoi
 s_atoi:
     push %ebp
@@ -41,4 +44,5 @@ end_atoi:
     pop %ebp
     ret
     
-
+init_s_stdlib:
+    ret
