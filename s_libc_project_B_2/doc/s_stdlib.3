@@ -1,0 +1,35 @@
+.TH STDLIB 3 "Version 1.0" "01/02/2024"
+.SH NAME
+stdlib \- routines assembly pour ATOI et ABS
+
+.SH SYNOPSIS
+.B #include <superlibc_math.h>
+.LP
+.B int s_abs(int x);
+.B int s_atoi(const char *str);
+
+.SH DESCRIPTION
+La bibliothèque \stdlib\fP fournit des routines assembly pour les fonctions ATOI et ABS.
+
+The function \s_abs\fP calcule la valeur absolue d'un entier.
+
+The function \s_atoi\fP convertit une chaîne de caractères en un entier.
+
+.SH PARAMETERS
+.LP
+.I x
+Un entier pour lequel la valeur absolue est calculée (\s_abs\fP).
+
+.I str
+Un pointeur vers la chaîne de caractères à convertir en entier (\s_atoi\fP).
+
+.SH RETURN VALUES
+.LP
+.B s_abs
+Renvoie la valeur absolue de l'entier en entrée.
+
+.B s_atoi
+Renvoie l'entier converti.
+
+.SH SEE ALSO
+Autres fonctions ou pages de manuel liées.
