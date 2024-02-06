@@ -20,6 +20,12 @@ TRELLO : https://trello.com/b/FHbOBVwV/sae-assembleur-v2
 3. Compilez la bibliothèque : `make`
 4. Exécutez les tests : `make test`
 
+## Installer les man pages
+1. Allez dans le répertoire du dossier : `cd s_libc_project_B_2/doc`
+2. Copier les fichiers man dans le dossier man3 : `sudo cp *.3 /usr/share/man/man3/`
+3. Actualiser le man : `sudo mandb`
+4. Utiliser le man : `man s_string`
+
 ## Auteurs
 - GIRAULT Adrien
 - ARVIN-BEROD Maxence
