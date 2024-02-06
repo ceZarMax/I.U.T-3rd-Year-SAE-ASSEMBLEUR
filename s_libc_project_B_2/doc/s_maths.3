@@ -1,0 +1,81 @@
+.TH MONASM 3 "Version 1.0" "Date"
+.SH NOM
+monasm \- routines assembly pour diverses opérations
+
+.SH SYNOPSIS
+.B #include <s_maths.h>
+.LP
+.B int init(void);
+.B int s_abs(int x);
+.B int s_div(int dividend, int divisor);
+.B int s_pow(int base, int exponent);
+
+.SH DESCRIPTION
+La bibliothèque \s_maths\fP fournit des routines assembly pour des opérations variées.
+
+The function \s_abs\fP calcule la valeur absolue d'un entier.
+
+The function \s_div\fP effectue une division entière sécurisée.
+
+The function \s_pow\fP calcule une puissance entière.
+
+.TH STDIO.H "Version 1.0" "01/02/2024"
+.SH NOM
+monasm_io \- routines assembly pour l'affichage de chaînes de caractères
+
+.SH SYNOPSIS
+.B #include <stdio.h>
+.LP
+.B void s_puts(const char *str);
+
+.SH DESCRIPTION
+
+The function \s_puts\fP affiche la chaîne de caractères spécifiée jusqu'à la rencontre d'un caractère nul.
+
+.SH PARAMÈTRES
+.LP
+.I str
+Pointeur vers la chaîne de caractères à afficher.
+
+.SH RETURN VALUES
+La fonction ne renvoie pas de valeur.
+
+.SH VOIR AUSSI
+Autres fonctions ou pages de manuel liées.
+
+.TH Stdlib 3 "Version 1.0" "01/02/2024"
+.SH NAME
+stdlib \- ATOI et abs
+
+.SH SYNOPSIS
+.B #include <superlibc_math.h>
+.LP
+.B int s_abs(int x);
+.B int s_atoi(const char *str);
+
+.SH DESCRIPTION
+The function \s_abs\fP calculates the absolute value of an integer.
+
+The function \s_atoi\fP converts a string to an integer.
+
+.SH PARAMETERS
+.LP
+.I x
+An integer for which the absolute value is calculated (\s_abs\fP).
+
+.I str
+A pointer to the string to be converted to an integer (\s_atoi\fP).
+
+.SH RETURN VALUES
+.LP
+.B init
+Returns an integer indicating the success of the initialization.
+
+.B s_abs
+Returns the absolute value of the input integer.
+
+.B s_atoi
+Returns the converted integer.
+
+.SH SEE ALSO
+Other related functions or manual pages.
