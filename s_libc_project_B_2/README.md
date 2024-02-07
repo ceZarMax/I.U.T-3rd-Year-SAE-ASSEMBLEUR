@@ -1,3 +1,4 @@
+8
 # Projet s_libc
 
 ## Description
@@ -95,6 +96,12 @@ Les registres x86 sont des emplacements de stockage internes au processeur qui s
      - Copie un mot (16 bits) de la source vers la destination.
 
 Chacun de ces registres a des utilisations conventionnelles, mais dans la pratique, les programmeurs peuvent choisir d'utiliser ces registres différemment en fonction de leurs besoins. Les registres `%ebp` et `%esp` sont particulièrement importants pour la gestion de la pile, tandis que les autres sont souvent utilisés pour des opérations arithmétiques, logiques et pour l'accès à la mémoire.
+
+
+**Makefile** : 
+
+Notre Makefile compile les fichiers source .s dans le répertoire src en objets .o dans le répertoire build. Ensuite, il construit une bibliothèque partagée dans le répertoire lib à partir des objets. Enfin, il compile un programme de test dans le répertoire test qui utilise cette bibliothèque partagée. La cible "all" exécute ces étapes, tandis que "clean" supprime les fichiers générés.
+
 
 Pile en programmation : 
 En programmation et en assembleur, la "pile" est une zone de mémoire spéciale utilisée pour stocker temporairement des informations. Elle fonctionne comme une pile d'assiettes : la dernière que vous ajoutez est la première que vous retirez.
