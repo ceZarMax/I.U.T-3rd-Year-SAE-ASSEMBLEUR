@@ -1,4 +1,4 @@
-8
+
 # Projet s_libc
 
 ## Description
@@ -85,15 +85,15 @@ Les registres x86 sont des emplacements de stockage internes au processeur qui s
 
 **movl :**
    - Move long :  
-     - Copie les 32 bits de la source vers la destination.
+     - Copie les 32 bits (8 octets) de la source vers la destination.
 
 **movb :**
    - Move byte :
-     - Copie un octet (8 bits) de la source vers la destination.
+     - Copie 8 bits (2 octets) de la source vers la destination.
 
 **movw :**
    - Move word :
-     - Copie un mot (16 bits) de la source vers la destination.
+     - Copie un mot de 16 bits (4 octets) de la source vers la destination.
 
 Chacun de ces registres a des utilisations conventionnelles, mais dans la pratique, les programmeurs peuvent choisir d'utiliser ces registres différemment en fonction de leurs besoins. Les registres `%ebp` et `%esp` sont particulièrement importants pour la gestion de la pile, tandis que les autres sont souvent utilisés pour des opérations arithmétiques, logiques et pour l'accès à la mémoire.
 
