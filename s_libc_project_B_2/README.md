@@ -75,7 +75,10 @@ Les registres x86 sont des emplacements de stockage internes au processeur qui s
 
 8. **%esp (Stack Pointer Register) :**
    - Utilisé comme pointeur de pile pour indiquer le sommet actuel de la pile.
-   
+
+9. **%eip (Instruction Pointer) :**
+   - Registre du processeur qui contient l'adresse mémoire de l'instruction suivante à être exécutée. Il pointe vers l'instruction dans la mémoire à partir de laquelle le processeur doit extraire et exécuter les opcodes.
+
 **XOR :**
    - Mettre à 0 le registre %eax
 
