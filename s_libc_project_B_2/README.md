@@ -44,10 +44,6 @@ Ce projet est distribué sous la licence de l'I.U.T de Vélizy
 `run`
 `bt`
 
-## Comprendre les variables assembleur : 
-
-http://www.lsv.fr/~goubault/CoursProgrammation/Doc/minic007.html
-
 ## Comprendre les registres : 
 
 Les registres x86 sont des emplacements de stockage internes au processeur qui sont utilisés pour effectuer des opérations temporaires, stocker des données, et gérer le flux d'instructions. Voici une brève description de chaque registre :
@@ -80,6 +76,12 @@ Les registres x86 sont des emplacements de stockage internes au processeur qui s
 9. **%eip (Instruction Pointer) :**
    - Registre du processeur qui contient l'adresse mémoire de l'instruction suivante à être exécutée. Il pointe vers l'instruction dans la mémoire à partir de laquelle le processeur doit extraire et exécuter les opcodes.
 
+Chacun de ces registres a des utilisations conventionnelles, mais dans la pratique, les programmeurs peuvent choisir d'utiliser ces registres différemment en fonction de leurs besoins. Les registres `%ebp` et `%esp` sont particulièrement importants pour la gestion de la pile, tandis que les autres sont souvent utilisés pour des opérations arithmétiques, logiques et pour l'accès à la mémoire.
+
+## Comprendre les variables assembleur : 
+
+http://www.lsv.fr/~goubault/CoursProgrammation/Doc/minic007.html
+
 **XOR :**
    - Mettre à 0 le registre %eax
 
@@ -94,8 +96,6 @@ Les registres x86 sont des emplacements de stockage internes au processeur qui s
 **movw :**
    - Move word :
      - Copie un mot de 16 bits (4 octets) de la source vers la destination.
-
-Chacun de ces registres a des utilisations conventionnelles, mais dans la pratique, les programmeurs peuvent choisir d'utiliser ces registres différemment en fonction de leurs besoins. Les registres `%ebp` et `%esp` sont particulièrement importants pour la gestion de la pile, tandis que les autres sont souvent utilisés pour des opérations arithmétiques, logiques et pour l'accès à la mémoire.
 
 
 **Makefile** : 
