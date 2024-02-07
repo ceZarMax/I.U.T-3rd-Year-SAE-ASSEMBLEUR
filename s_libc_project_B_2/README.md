@@ -49,8 +49,8 @@ Ce projet est distribué sous la licence de l'I.U.T de Vélizy
 Les registres x86 sont des emplacements de stockage internes au processeur qui sont utilisés pour effectuer des opérations temporaires, stocker des données, et gérer le flux d'instructions. Voici une brève description de chaque registre :
 
 1. **%eax (Accumulator Register) :**
-   - Utilisé comme registre accumulateur pour stocker les résultats des opérations arithmétiques et logiques.
-   - Peut également être utilisé pour les valeurs de retour de fonctions.
+   - Il est souvent utilisé pour stocker des résultats de calculs, des valeurs de retour de fonctions et d'autres opérations arithmétiques. 
+   - C'est un registre de 32 bits, mais ses parties inférieures (AX, AH, AL) peuvent être utilisées pour des opérations plus spécifiques.
 
 2. **%ebx (Base Register) :**
    - Souvent utilisé comme registre de base pour des accès mémoire indirects ou pour stocker des valeurs temporaires.
