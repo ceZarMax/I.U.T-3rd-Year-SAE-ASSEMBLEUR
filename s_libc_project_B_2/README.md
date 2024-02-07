@@ -98,7 +98,7 @@ http://www.lsv.fr/~goubault/CoursProgrammation/Doc/minic007.html
      - Copie un mot de 16 bits (4 octets) de la source vers la destination.
 
 
-**Makefile** : 
+## **Makefile** : 
 
 Notre Makefile compile les fichiers source .s dans le répertoire src en objets .o dans le répertoire build. Ensuite, il construit une bibliothèque partagée dans le répertoire lib à partir des objets. Enfin, il compile un programme de test dans le répertoire test qui utilise cette bibliothèque partagée. La cible "all" exécute ces étapes, tandis que "clean" supprime les fichiers générés.
 
